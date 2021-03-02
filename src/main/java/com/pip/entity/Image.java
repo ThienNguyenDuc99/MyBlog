@@ -1,0 +1,64 @@
+package com.pip.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "image")
+public class Image {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
+
+    @Column(name = "content")
+    private String content;
+
+    @Column(name = "indexx")
+    private int indexx;
+
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Post.class, cascade= {CascadeType.ALL})
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    public Image(String content, int index) {
+        this.content = content;
+        this.indexx = index;
+    }
+
+    public Image() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getIndex() {
+        return indexx;
+    }
+
+    public void setIndex(int index) {
+        this.indexx = index;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+}
+
