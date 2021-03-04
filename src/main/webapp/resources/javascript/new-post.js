@@ -9,8 +9,8 @@ class admin1 {
 
     newPost() {
         var listElement = $('.element');
-        var listParagraph = $('.element.paragraph');
-        var listImage = $('.element.image');
+        //var listParagraph = $('.element.paragraph') + $('.element.image');
+        //var listImage = $('.element.image');
         var title = listElement[0].value;
         var subject = listElement[1].value;
         var d = new Date();
@@ -26,10 +26,20 @@ class admin1 {
             type : 'post',
             data : JSON.stringify(post),
             success : function(data) {
-                for(let i = 0; i < listParagraph.length; i++){
-                    var paragraph = {};
-                    paragraph["content"] = listParagraph[i].firstChild.value;
-                    paragraph["index"] = listParagraph[i].lastChild.value;
+                for(let i = 2; i < listElement.length; i++){
+                    var str = listElement[i].firstChild.value;
+                    str = str.split("\\");
+                    str = str[str.length-1];
+                    if(listElement[i].firstChild.value.indexOf('.jpg')!==-1){
+                        var paragraph = {};
+                        paragraph["content"] = str;
+                        paragraph["index"] = listElement[i].lastChild.value;
+                    }
+                    else {
+                        var paragraph = {};
+                        paragraph["content"] = listElement[i].firstChild.value;
+                        paragraph["index"] = listElement[i].lastChild.value;
+                    }
                     $.ajax({
                         url : "/add_paragraph",
                         contentType : "application/json;charset=UTF-8",
@@ -44,12 +54,11 @@ class admin1 {
                         }
                     });
                 }
-
-                for(let i = 0; i < listImage.length; i++){
+               /* for(let i = 0; i < listImage.length; i++){
                     var image = {};
-                    /*var str = listImage[i].firstChild.value;
+                    /!*var str = listImage[i].firstChild.value;
                     str = str.split("\\");
-                    str = str[str.length-1];*/
+                    str = str[str.length-1];*!/
                     image["content"] = listImage[i].firstChild.value;
                     image["index"] = listImage[i].lastChild.value;
                     $.ajax({
@@ -65,7 +74,7 @@ class admin1 {
                             console.log("ERROR: ", error);
                         }
                     });
-                }
+                }*/
             },
             error : function(error) {
                 console.log("ERROR: ", error);

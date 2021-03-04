@@ -70,7 +70,7 @@
             </c:url>
 
             <!-- construct an "delete" link with customer id -->
-            <c:url var="deleteLink" value="/delete_post">
+            <c:url var="deleteLink" value="/delete_post/">
                 <c:param name="postId" value="${temPost.id}"/>
             </c:url>
 

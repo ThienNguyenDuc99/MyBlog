@@ -9,14 +9,10 @@ class admin2 {
 
     updatePost() {
         var listElement = $('.element');
-        var listParagraph = $('.element.paragraph');
-        var listImage = $('.element.image');
+        var listParagraph = $('.element1');
         var paragraph_id = $('.paragraph_id');
-        var image_id = $('.image_id');
         var paragraph_content = $('.element_content.paragraph');
-        var image_content = $('.element_content.image');
         var paragraph_index = $('.index.paragraph');
-        var image_index = $('.index.image');
         var title = listElement[0].value;
         var subject = listElement[1].value;
         var post = {};
@@ -51,7 +47,7 @@ class admin2 {
                     });
                 }
 
-                for(let i = 0; i < listImage.length; i++){
+              /*  for(let i = 0; i < listImage.length; i++){
                     var image = {};
                     image["id"] = image_id[i].value;
                     image["content"] = image_content[i].value;
@@ -69,7 +65,7 @@ class admin2 {
                             console.log("ERROR: ", error);
                         }
                     });
-                }
+                }*/
             },
             error : function(error) {
                 console.log("ERROR: ", error);

@@ -25,7 +25,7 @@ public interface Service {
 
     public List<Post> getPost_byID(int id);
 
-    public List<Paragraph> getListPost_byPostId(int id);
+    public List<Paragraph> getListParagraph_byPostId(int id);
 
     public List<Image> getListPost_byPostId1(int id);
 
@@ -34,4 +34,8 @@ public interface Service {
     public void UpdateParagraph(Paragraph paragraph, int id);
 
     public void UpdateImage(Image image, int id);
+
+    public List<Post> getPosts();
+
+    public List<Post> searchPost(String q);
 }

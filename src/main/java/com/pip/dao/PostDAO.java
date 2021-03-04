@@ -17,4 +17,8 @@ public interface PostDAO {
     public List<Post> getPost_byID(int id);
 
     public int UpdatePost(Post post, int id);
+
+    public List<Post> getPosts();
+
+    public List<Post> searchPost(String q);
 }

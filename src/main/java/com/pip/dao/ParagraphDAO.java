@@ -8,7 +8,7 @@ import java.util.List;
 public interface ParagraphDAO {
     public void CreateNewParagraph(Paragraph paragraph);
 
-    public List<Paragraph> getListPost_byPostId(int id);
+    public List<Paragraph> getListParagraph_byPostId(int id);
 
     public int UpdateParagraph(Paragraph post, int id);
 }

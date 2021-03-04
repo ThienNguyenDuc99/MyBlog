@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/libraries/bootstrap-5.0.0-beta1-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin.css">
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/newpost.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/editpost.css">
 
 </head>
 <body>
@@ -57,19 +57,19 @@
     <input class="element subject" type="text" placeholder="Subject" value="${posts.get(0).subject}">
     <input type="hidden" class="post_id" value="${posts.get(0).id}" >
     <c:forEach var="temParagraph" items="${paragraphs}">
-        <div class='element paragraph'>
+        <div class='element1 paragraph'>
             <textarea class='element_content paragraph'>${temParagraph.content}</textarea>
             <input type="hidden" class="paragraph_id" value="${temParagraph.id}" >
             <input class="index paragraph" value="${temParagraph.index}">
         </div>
     </c:forEach>
-    <c:forEach var="temImage" items="${images}">
-        <div class='element image' style="width: 800px">
+<%--    <c:forEach var="temImage" items="${images}">
+        <div class='element1 image' style="width: 800px">
             <input type="text" class="element_content image" value="${temImage.content}">
             <input type="hidden" class="image_id" value="${temImage.id}" >
             <input class="index image" value="${temImage.index}">
         </div>
-    </c:forEach>
+    </c:forEach>--%>
 </div>
 <script type="text/javascript"
         src="${pageContext.request.contextPath}/resources/libraries/jquery-3.5.1.min.js"></script>

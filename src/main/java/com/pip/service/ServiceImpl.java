@@ -68,9 +68,9 @@ public class ServiceImpl implements com.pip.service.Service {
     }
 
     @Override
-    public List<Paragraph> getListPost_byPostId(int id) {
+    public List<Paragraph> getListParagraph_byPostId(int id) {
         ParagraphDAOImpl paragraphDAO = new ParagraphDAOImpl();
-        return paragraphDAO.getListPost_byPostId(id);
+        return paragraphDAO.getListParagraph_byPostId(id);
     }
 
     @Override
@@ -95,6 +95,18 @@ public class ServiceImpl implements com.pip.service.Service {
     public void UpdateImage(Image image, int id) {
         ImageDAOImpl imageDAO = new ImageDAOImpl();
         imageDAO.UpdateImage(image, id);
+    }
+
+    @Override
+    public List<Post> getPosts() {
+        PostDAOImpl postDAO = new PostDAOImpl();
+        return postDAO.getPosts();
+    }
+
+    @Override
+    public List<Post> searchPost(String q) {
+        PostDAOImpl postDAO = new PostDAOImpl();
+        return postDAO.searchPost(q);
     }
 
 

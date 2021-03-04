@@ -50,10 +50,10 @@ public class ParagraphDAOImpl implements ParagraphDAO{
      * @return
      */
     @Override
-    public List<Paragraph> getListPost_byPostId(int id) {
+    public List<Paragraph> getListParagraph_byPostId(int id) {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
-        String hql = "FROM Paragraph E WHERE E.post = '" + id + "'";
+        String hql = "FROM Paragraph E WHERE E.post = '" + id + "' order by indexx";
         Query query = session.createQuery(hql);
         List<Paragraph> paragraphs = query.getResultList();
         session.getTransaction().commit();

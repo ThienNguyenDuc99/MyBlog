@@ -66,7 +66,7 @@ public class AdminController {
         else return "login";
     }
 
-    @GetMapping("/delete_post")
+    @GetMapping("/delete_post/")
     public String deletePost(@RequestParam("postId") int id) {
 
         ServiceImpl service = new ServiceImpl();
@@ -82,7 +82,7 @@ public class AdminController {
         ServiceImpl service = new ServiceImpl();
         List<Post> posts = service.getPost_byID(id);
         List<Image> images = service.getListPost_byPostId1(id);
-        List<Paragraph> paragraphs = service.getListPost_byPostId(id);
+        List<Paragraph> paragraphs = service.getListParagraph_byPostId(id);
         theModel.addAttribute("posts", posts);
         theModel.addAttribute("images", images);
         theModel.addAttribute("paragraphs", paragraphs);

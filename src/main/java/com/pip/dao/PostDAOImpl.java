@@ -102,6 +102,28 @@ public class PostDAOImpl implements PostDAO {
         return result;
     }
 
+    @Override
+    public List<Post> getPosts() {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        String hql = "FROM Post";
+        Query query = session.createQuery(hql);
+        List<Post> post = query.getResultList();
+        session.getTransaction().commit();
+        return post;
+    }
+
+    @Override
+    public List<Post> searchPost(String q) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        String hql = "FROM Post E WHERE E.title LIKE  '%" +q+ "%'";
+        Query query = session.createQuery(hql);
+        List<Post> post = query.getResultList();
+        session.getTransaction().commit();
+        return post;
+    }
+
 
     @Override
     public void deletePost(int id) {
